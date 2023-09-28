@@ -1,0 +1,4 @@
+ipykernel
+mujoco
+mediapy
+pin
