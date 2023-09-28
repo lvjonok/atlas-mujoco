@@ -5,12 +5,16 @@
 <!-- =================================================================================== -->
 <robot name="atlas" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <mujoco>
-    <compiler
-      meshdir="meshes/"
-      texturedir="materials/textures"
-      balanceinertia="true"
+    <compiler meshdir="meshes/" texturedir="materials/textures" balanceinertia="true"
       discardvisual="false" />
   </mujoco>
+
+  <link name="world" />
+  <joint name="world_joint" type="floating">
+    <parent link="world" />
+    <child link="pelvis" />
+    <origin rpy="0 0 0" xyz="0 0 0" />
+  </joint>
 
   <link name="l_clav">
     <inertial>
@@ -269,16 +273,8 @@
   <link name="ltorso">
     <inertial>
       <mass value="9.509" />
-      <origin
-          rpy="0 0 0"
-          xyz="0.0111 0 0.0271" />
-      <inertia
-          ixx="0.1244"
-          ixy="0.0008"
-          ixz="-0.0007"
-          iyy="0.0958"
-          iyz="-0.0005"
-          izz="0.1167" />
+      <origin rpy="0 0 0" xyz="0.0111 0 0.0271" />
+      <inertia ixx="0.1244" ixy="0.0008" ixz="-0.0007" iyy="0.0958" iyz="-0.0005" izz="0.1167" />
     </inertial>
     <visual>
       <geometry>
